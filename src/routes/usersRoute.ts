@@ -70,7 +70,7 @@ users.put('/:id', (req: Request, res: Response) => {
 // delete user
 users.delete('/:id', (req: Request, res: Response) => {
   const id = Number(req.params.id);
-  const foundIndex = usersArray.findIndex((element) => element.id === id);
+  const foundIndex = usersArray.findIndex((user) => user.id === id);
   usersArray.splice(foundIndex, 1);
   res.json({ message: 'user deleted!', usersArray });
 });
