@@ -1,14 +1,17 @@
-import express from 'express';
-import bodyParser from 'body-parser';
+import express, { Request, Response } from 'express';
 
 require('dotenv').config();
 
 const app = express();
+app.use(express.json());
 const port = process.env.PORT || 3000;
-app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-  res.json({ status: 'Server is running', message: 'API v1' });
+app.get('/', (req: Request, res: Response) => {
+  res.status(200).json({ message: 'API v1' });
+});
+
+app.get('*', (req: Request, res: Response) => {
+  res.status(404).json({ message: 'This route does not exist' });
 });
 
 app.listen(port, (): void => {
