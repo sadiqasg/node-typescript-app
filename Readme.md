@@ -1,4 +1,4 @@
-## Node Environment
+## Node Environment | Stutern
 ### Contains
 - Eslint
 - Prettier
