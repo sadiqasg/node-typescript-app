@@ -1,13 +1,15 @@
 import express, { Request, Response } from 'express';
+import books from './routes/bookRoutes';
 
 require('dotenv').config();
 
 const app = express();
+const port = process.env.PORT;
 app.use(express.json());
-const port = process.env.PORT || 3000;
+app.use('/books', books);
 
 app.get('/', (req: Request, res: Response) => {
-  res.status(200).json({ message: 'API v1' });
+  res.status(200).json({ app: 'Book API v1', message: 'Navigate to /books' });
 });
 
 app.get('*', (req: Request, res: Response) => {
