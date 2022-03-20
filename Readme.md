@@ -25,10 +25,19 @@ A Books API with CRUD functionality
 ```
 
 ## Endpoints
-| Method   | URL                                      | Description                              |
+| Method   | URL                                      | Description                              | 
 | -------- | ---------------------------------------- | ---------------------------------------- | 
 | `GET`    | `/books`                             | Retrieve all books.                      |
-| `POST`   | `/books`                             | Create a new book.                       | 
+| `POST`   | `/books`                             | Create a new book. Takes in ```
+{
+	"title": "book title",
+	"author": "book author",
+	"total_pages": number_of_pages,
+	"type": "book genre",
+	"summary": "summary of book"
+}
+```
+                       | 
 | `GET`    | `/book/:id`                          | Retrieve a book with a passed id                       |
 | `PUT`  | `/book/:id`                          | Update a book data with the passed id.                 |
 | `DELETE` | `/book/:id` | Delete a book with a passed id.                    |
