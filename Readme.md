@@ -25,22 +25,13 @@ A Books API with CRUD functionality
 ```
 
 ## Endpoints
-| Method   | URL                                      | Description                              | 
-| -------- | ---------------------------------------- | ---------------------------------------- | 
-| `GET`    | `/books`                             | Retrieve all books.                      |
-| `POST`   | `/books`                             | Create a new book. Takes in ```
-{
-	"title": "book title",
-	"author": "book author",
-	"total_pages": number_of_pages,
-	"type": "book genre",
-	"summary": "summary of book"
-}
-```
-                       | 
-| `GET`    | `/book/:id`                          | Retrieve a book with a passed id                       |
-| `PUT`  | `/book/:id`                          | Update a book data with the passed id.                 |
-| `DELETE` | `/book/:id` | Delete a book with a passed id.                    |
+| Method   | URL           | Description                              | 
+| -------- | --------------| ---------------------------------------- | 
+| `GET`    | `/books`      | Retrieve all books |
+| `POST`   | `/books`      | Create a new book. Takes in {title, author, total_pages, type, and summary} | 
+| `GET`    | `/book/:id`   | Retrieve a book with a passed id |
+| `PUT`  | `/book/:id`     | Update a book data with the passed id |
+| `DELETE` | `/book/:id`   | Delete a book with a passed id |
 
 ## Authors
 Abubakar Sadiq [@arafat_sambo](https://twitter.com/arafat_sambo)
