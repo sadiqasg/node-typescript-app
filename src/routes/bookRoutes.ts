@@ -1,11 +1,5 @@
 import express from 'express';
-import {
-  create,
-  index,
-  remove,
-  show,
-  update,
-} from '../controllers/bookController';
+import { create, index, remove, show, update } from '../handlers/bookHandler';
 
 const books = express.Router();
 
