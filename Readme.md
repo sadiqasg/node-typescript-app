@@ -8,9 +8,10 @@ A Books API with CRUD functionality
 
 ### Built with
 
-* NodeJS (Express) 
+* NodeJS
+* ExpressJS
 * Typescript
-* PostgresQL
+* PostgreSQL
 * Eslint
 * Prettier
 
