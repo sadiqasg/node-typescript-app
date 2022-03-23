@@ -3,7 +3,7 @@ import { Book, BookStore } from '../models/book';
 
 const bookStore = new BookStore();
 
-// controller function to access the index method to get all books
+// handler function to access the index method to get all books
 export const index = async (req: Request, res: Response) => {
   try {
     const books = await bookStore.index();
@@ -17,7 +17,7 @@ export const index = async (req: Request, res: Response) => {
   }
 };
 
-//controller function for create book method
+//handler function for create book method
 export const create = async (req: Request, res: Response) => {
   try {
     const newBook: Book = req.body;
@@ -29,7 +29,7 @@ export const create = async (req: Request, res: Response) => {
   }
 };
 
-// getting a single book controller
+// getting a single book handler
 export const show = async (req: Request, res: Response) => {
   const id = req.params.id;
   try {
@@ -43,7 +43,7 @@ export const show = async (req: Request, res: Response) => {
   }
 };
 
-// updating book controller
+// updating book handler
 export const update = async (req: Request, res: Response) => {
   const id = req.params.id;
   try {
@@ -55,11 +55,14 @@ export const update = async (req: Request, res: Response) => {
   }
 };
 
-// delete book controller
+// delete book handler
 export const remove = async (req: Request, res: Response) => {
   const id = req.params.id;
   try {
     const result = await bookStore.delete(id);
+    if (!result) {
+      return res.json({ message: `No book with id: ${id}` });
+    }
     res.json({ message: 'Book deleted!', result });
   } catch (error) {
     throw new Error(`error deleting book: ${error}`);
