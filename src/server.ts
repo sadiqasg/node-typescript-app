@@ -2,6 +2,8 @@ import express, { Request, Response } from 'express';
 import books from './routes/bookRoutes';
 import users from './routes/userRoutes';
 import cookieParser from 'cookie-parser';
+import orders from './routes/orderRoutes';
+import products from './routes/productRoutes';
 
 require('dotenv').config();
 
@@ -11,6 +13,8 @@ const port = process.env.PORT;
 app.use(express.json());
 app.use('/books', books);
 app.use('/user', users);
+app.use('/orders', orders);
+app.use('/products', products);
 
 app.get('/', (req: Request, res: Response) => {
   res.status(200).json({ app: 'Book API v1', message: 'Navigate to /books' });
