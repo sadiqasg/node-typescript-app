@@ -16,8 +16,19 @@ export const productInOrders = async (req: Request, res: Response) => {
   }
 };
 
+export const getTopFive = async (req: Request, res: Response) => {
+  try {
+    const products = await dashboard.topFive();
+    res.json(products);
+  } catch (err) {
+    console.log(err);
+    res.json({ error: err });
+  }
+};
+
 const dashboardRoutes = (app: Application) => {
   app.get('/products_in_orders', productInOrders);
+  app.get('/top-five', getTopFive);
 };
 
 export default dashboardRoutes;
