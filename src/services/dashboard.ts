@@ -18,13 +18,13 @@ export class DashboardQueries {
   }
 
   //   get 5 most expensive
-  async topFive(): Promise<Product> {
+  async topFive(): Promise<Product[]> {
     try {
       const conn = await db_client.connect();
-      const sql = 'SELECT * FROM products ORDER BY price DESC';
+      const sql = 'SELECT * FROM products ORDER BY price DESC LIMIT 5';
       const result = await conn.query(sql);
       conn.release();
-      return result.rows[0];
+      return result.rows;
     } catch (error) {
       throw new Error(`Error: ${error}`);
     }
